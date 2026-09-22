@@ -1,0 +1,49 @@
+identity:
+  name: "add_page"
+  author: "asyntai"
+  label:
+    en_US: "Add a page to the knowledge base"
+    zh_Hans: "将网页添加到知识库"
+    pt_BR: "Adicionar uma página à base de conhecimento"
+    ja_JP: "ページをナレッジベースに追加する"
+description:
+  human:
+    en_US: "Give Asyntai a URL. Asyntai reads the page and adds its content to the knowledge base, so the website answers from it at once."
+    zh_Hans: "向 Asyntai 提供一个网址。Asyntai 会读取该页面并把内容加入知识库，网站随即可据此作答。"
+    pt_BR: "Informe uma URL à Asyntai. A Asyntai lê a página e adiciona o conteúdo à base de conhecimento, e o site passa a responder com base nela."
+    ja_JP: "Asyntai に URL を渡します。Asyntai はそのページを読み取って内容をナレッジベースに追加し、ウェブサイトはすぐにそこから回答します。"
+  llm: "Add the content of a web page to a website's Asyntai knowledge base. Use this when the user wants the agent to learn a documentation page, a policy page or any other public page."
+parameters:
+  - name: url
+    type: string
+    required: true
+    label:
+      en_US: "Page URL"
+      zh_Hans: "网页地址"
+      pt_BR: "URL da página"
+      ja_JP: "ページ URL"
+    human_description:
+      en_US: "The address of the page to read."
+      zh_Hans: "要读取的页面地址。"
+      pt_BR: "O endereço da página a ser lida."
+      ja_JP: "読み取るページのアドレス。"
+    llm_description: "Full public URL of the page to add, for example https://example.com/shipping."
+    form: llm
+  - name: website_id
+    type: string
+    required: false
+    label:
+      en_US: "Website ID"
+      zh_Hans: "网站 ID"
+      pt_BR: "ID do site"
+      ja_JP: "ウェブサイト ID"
+    human_description:
+      en_US: "Which knowledge base receives the page. Leave empty for the primary website."
+      zh_Hans: "页面加入哪个知识库。留空则使用主网站。"
+      pt_BR: "Qual base de conhecimento recebe a página. Deixe vazio para o site principal."
+      ja_JP: "どのナレッジベースに追加するか。空欄の場合はプライマリのウェブサイトを使います。"
+    llm_description: "Numeric id of the website whose knowledge base receives the page. Leave empty for the primary website."
+    form: form
+extra:
+  python:
+    source: tools/add_page.py

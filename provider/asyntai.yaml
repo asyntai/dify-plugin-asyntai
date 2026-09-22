@@ -1,0 +1,47 @@
+identity:
+  author: "asyntai"
+  name: "asyntai"
+  label:
+    en_US: "Asyntai"
+    zh_Hans: "Asyntai"
+    pt_BR: "Asyntai"
+    ja_JP: "Asyntai"
+  description:
+    en_US: "Give your agent the knowledge of a whole website. Asyntai crawls the site, keeps the pages and the product feed fresh, and answers questions from them. It also opens the website chats and the leads they produced."
+    zh_Hans: "让你的智能体掌握整个网站的知识。Asyntai 抓取网站，持续更新页面与商品信息，并据此回答问题。它还能读取网站对话以及由此产生的销售线索。"
+    pt_BR: "Dê ao seu agente o conhecimento de um site inteiro. A Asyntai rastreia o site, mantém as páginas e o feed de produtos atualizados e responde perguntas com base neles. Também abre as conversas do site e os leads gerados."
+    ja_JP: "エージェントにウェブサイト全体の知識を与えます。Asyntai はサイトを巡回し、ページと商品フィードを最新に保ち、それらをもとに質問に答えます。サイトのチャットと獲得したリードも読み取れます。"
+  icon: "icon.png"
+
+credentials_for_provider:
+  api_key:
+    type: secret-input
+    required: true
+    label:
+      en_US: "Asyntai API key"
+      zh_Hans: "Asyntai API 密钥"
+      pt_BR: "Chave de API da Asyntai"
+      ja_JP: "Asyntai API キー"
+    placeholder:
+      en_US: "Paste your Asyntai API key"
+      zh_Hans: "粘贴你的 Asyntai API 密钥"
+      pt_BR: "Cole sua chave de API da Asyntai"
+      ja_JP: "Asyntai API キーを貼り付けてください"
+    help:
+      en_US: "Sign in to Asyntai, open Settings, then API, and copy the key. The API needs the Starter plan or higher."
+      zh_Hans: "登录 Asyntai，打开「设置」中的 API，复制密钥。该 API 需要 Starter 或更高版本的套餐。"
+      pt_BR: "Entre na Asyntai, abra Configurações e depois API, e copie a chave. A API exige o plano Starter ou superior."
+      ja_JP: "Asyntai にサインインし、設定の API を開いてキーをコピーします。API には Starter 以上のプランが必要です。"
+    url: https://asyntai.com/settings/
+
+tools:
+  - tools/ask_website.yaml
+  - tools/add_page.yaml
+  - tools/add_text.yaml
+  - tools/list_leads.yaml
+  - tools/get_conversation.yaml
+  - tools/list_websites.yaml
+
+extra:
+  python:
+    source: provider/asyntai.py

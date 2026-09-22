@@ -1,0 +1,19 @@
+identity:
+  name: "list_websites"
+  author: "asyntai"
+  label:
+    en_US: "List websites"
+    zh_Hans: "列出网站"
+    pt_BR: "Listar sites"
+    ja_JP: "ウェブサイト一覧"
+description:
+  human:
+    en_US: "Show every website on the Asyntai account with its ID and its domain, so you know which ID to give the other tools."
+    zh_Hans: "显示 Asyntai 账户下的所有网站及其 ID 和域名，便于为其他工具提供正确的 ID。"
+    pt_BR: "Mostre todos os sites da conta Asyntai com seu ID e domínio, para saber qual ID passar às outras ferramentas."
+    ja_JP: "Asyntai アカウント内のすべてのウェブサイトを ID とドメインとともに表示し、他のツールに渡す ID がわかるようにします。"
+  llm: "List the websites on this Asyntai account, each with a numeric id, a domain and whether it is the primary one. Call this first when the user names a website by its domain and a tool needs the numeric id."
+parameters: []
+extra:
+  python:
+    source: tools/list_websites.py

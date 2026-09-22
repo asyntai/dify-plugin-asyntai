@@ -1,0 +1,64 @@
+identity:
+  name: "add_text"
+  author: "asyntai"
+  label:
+    en_US: "Add a note to the knowledge base"
+    zh_Hans: "将文本添加到知识库"
+    pt_BR: "Adicionar um texto à base de conhecimento"
+    ja_JP: "テキストをナレッジベースに追加する"
+description:
+  human:
+    en_US: "Write a title and a text straight into the knowledge base. Use it for opening hours, shipping rules, a price list, or anything that is not on a page yet."
+    zh_Hans: "直接把标题和正文写入知识库。适用于营业时间、配送规则、价目表，或任何尚未发布到页面上的内容。"
+    pt_BR: "Escreva um título e um texto diretamente na base de conhecimento. Use para horários de funcionamento, regras de envio, tabela de preços ou qualquer coisa que ainda não esteja em uma página."
+    ja_JP: "タイトルと本文をナレッジベースに直接書き込みます。営業時間、配送ルール、価格表など、まだページに載っていない情報に使います。"
+  llm: "Write a titled note into a website's Asyntai knowledge base. Use this when the fact the agent must remember is not published on any page, for example internal rules, opening hours or a policy the user just stated."
+parameters:
+  - name: title
+    type: string
+    required: true
+    label:
+      en_US: "Title"
+      zh_Hans: "标题"
+      pt_BR: "Título"
+      ja_JP: "タイトル"
+    human_description:
+      en_US: "A short name for this note, for example Opening hours."
+      zh_Hans: "该条目的简短名称，例如「营业时间」。"
+      pt_BR: "Um nome curto para este texto, por exemplo Horário de funcionamento."
+      ja_JP: "この項目の短い名前。例：営業時間。"
+    llm_description: "A short title that names the subject of the note."
+    form: llm
+  - name: content
+    type: string
+    required: true
+    label:
+      en_US: "Text"
+      zh_Hans: "正文"
+      pt_BR: "Texto"
+      ja_JP: "本文"
+    human_description:
+      en_US: "The text to remember. Ten characters or more."
+      zh_Hans: "需要记住的正文内容，至少 10 个字符。"
+      pt_BR: "O texto a ser lembrado. Dez caracteres ou mais."
+      ja_JP: "記憶させる本文。10 文字以上。"
+    llm_description: "The full text to store. Write it as complete sentences, because the website answers visitors from it."
+    form: llm
+  - name: website_id
+    type: string
+    required: false
+    label:
+      en_US: "Website ID"
+      zh_Hans: "网站 ID"
+      pt_BR: "ID do site"
+      ja_JP: "ウェブサイト ID"
+    human_description:
+      en_US: "Which knowledge base receives the note. Leave empty for the primary website."
+      zh_Hans: "文本加入哪个知识库。留空则使用主网站。"
+      pt_BR: "Qual base de conhecimento recebe o texto. Deixe vazio para o site principal."
+      ja_JP: "どのナレッジベースに追加するか。空欄の場合はプライマリのウェブサイトを使います。"
+    llm_description: "Numeric id of the website whose knowledge base receives the note. Leave empty for the primary website."
+    form: form
+extra:
+  python:
+    source: tools/add_text.py

@@ -1,0 +1,40 @@
+version: 0.0.1
+type: plugin
+author: asyntai
+name: asyntai
+label:
+  en_US: Asyntai
+  zh_Hans: Asyntai
+  pt_BR: Asyntai
+  ja_JP: Asyntai
+description:
+  en_US: Give your agent the knowledge of a whole website. Asyntai crawls the site, keeps the pages and the product feed fresh, and answers questions from them. It also opens the website chats and the leads they produced.
+  zh_Hans: 让你的智能体掌握整个网站的知识。Asyntai 抓取网站，持续更新页面与商品信息，并据此回答问题。它还能读取网站对话以及由此产生的销售线索。
+  pt_BR: Dê ao seu agente o conhecimento de um site inteiro. A Asyntai rastreia o site, mantém as páginas e o feed de produtos atualizados e responde perguntas com base neles. Também abre as conversas do site e os leads gerados.
+  ja_JP: エージェントにウェブサイト全体の知識を与えます。Asyntai はサイトを巡回し、ページと商品フィードを最新に保ち、それらをもとに質問に答えます。サイトのチャットと獲得したリードも読み取れます。
+icon: icon.png
+tags:
+  - utilities
+  - productivity
+resource:
+  memory: 268435456
+  permission:
+    tool:
+      enabled: true
+plugins:
+  tools:
+    - provider/asyntai.yaml
+meta:
+  version: 0.0.1
+  arch:
+    - amd64
+    - arm64
+  runner:
+    language: python
+    version: "3.12"
+    entrypoint: main
+  minimum_dify_version: 1.0.0
+created_at: 2026-09-21T09:33:31.9983371+02:00
+privacy: PRIVACY.md
+verified: false
+repo: https://github.com/asyntai/dify-plugin-asyntai

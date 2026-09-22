@@ -1,0 +1,64 @@
+identity:
+  name: "ask_website"
+  author: "asyntai"
+  label:
+    en_US: "Ask the website"
+    zh_Hans: "向网站提问"
+    pt_BR: "Perguntar ao site"
+    ja_JP: "ウェブサイトに質問する"
+description:
+  human:
+    en_US: "Ask a question about the website and get the answer Asyntai gives visitors, built from the crawled pages, the product feed and the knowledge base."
+    zh_Hans: "就该网站提出问题，获得 Asyntai 向访客给出的答案，答案来自已抓取的页面、商品信息和知识库。"
+    pt_BR: "Faça uma pergunta sobre o site e receba a resposta que a Asyntai dá aos visitantes, formada pelas páginas rastreadas, pelo feed de produtos e pela base de conhecimento."
+    ja_JP: "ウェブサイトについて質問し、巡回済みのページ、商品フィード、ナレッジベースから作られた、Asyntai が訪問者に返す回答を受け取ります。"
+  llm: "Answer a question using the knowledge of a specific website: its pages, its products and everything in its Asyntai knowledge base. Use this whenever the user asks about a company, its products, its prices, its policies or anything else that lives on that website."
+parameters:
+  - name: question
+    type: string
+    required: true
+    label:
+      en_US: "Question"
+      zh_Hans: "问题"
+      pt_BR: "Pergunta"
+      ja_JP: "質問"
+    human_description:
+      en_US: "The question to answer from the website."
+      zh_Hans: "需要根据网站内容回答的问题。"
+      pt_BR: "A pergunta a ser respondida com base no site."
+      ja_JP: "ウェブサイトの内容から答える質問。"
+    llm_description: "The question to answer, written in full, in the language the answer should use."
+    form: llm
+  - name: website_id
+    type: string
+    required: false
+    label:
+      en_US: "Website ID"
+      zh_Hans: "网站 ID"
+      pt_BR: "ID do site"
+      ja_JP: "ウェブサイト ID"
+    human_description:
+      en_US: "Which website answers. Leave empty for the primary website. Use the List websites tool to find the ID."
+      zh_Hans: "由哪个网站作答。留空则使用主网站。可用「列出网站」工具查找 ID。"
+      pt_BR: "Qual site responde. Deixe vazio para o site principal. Use a ferramenta Listar sites para encontrar o ID."
+      ja_JP: "どのウェブサイトが回答するか。空欄の場合はプライマリのウェブサイトを使います。ID は「ウェブサイト一覧」ツールで確認できます。"
+    llm_description: "Numeric id of the website to ask. Leave empty to use the primary website."
+    form: form
+  - name: session_id
+    type: string
+    required: false
+    label:
+      en_US: "Session ID"
+      zh_Hans: "会话 ID"
+      pt_BR: "ID da sessão"
+      ja_JP: "セッション ID"
+    human_description:
+      en_US: "Keeps the history of one conversation. Send the same value on every turn."
+      zh_Hans: "用于保留同一次对话的历史记录。每一轮都发送相同的值。"
+      pt_BR: "Mantém o histórico de uma conversa. Envie o mesmo valor em cada turno."
+      ja_JP: "一つの会話の履歴を保持します。毎ターン同じ値を送ってください。"
+    llm_description: "An identifier that groups turns into one conversation. Reuse the same value across turns."
+    form: form
+extra:
+  python:
+    source: tools/ask_website.py

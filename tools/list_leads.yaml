@@ -1,0 +1,82 @@
+identity:
+  name: "list_leads"
+  author: "asyntai"
+  label:
+    en_US: "List leads"
+    zh_Hans: "列出销售线索"
+    pt_BR: "Listar leads"
+    ja_JP: "リードを一覧表示する"
+description:
+  human:
+    en_US: "Read the visitors who left an email address or a phone number in the website chat, newest first, with the page they were on."
+    zh_Hans: "读取在网站对话中留下邮箱或电话的访客，按时间从新到旧排列，并显示其所在页面。"
+    pt_BR: "Leia os visitantes que deixaram um e-mail ou telefone no chat do site, dos mais recentes aos mais antigos, com a página em que estavam."
+    ja_JP: "ウェブサイトのチャットでメールアドレスや電話番号を残した訪問者を、新しい順に、閲覧していたページとともに読み取ります。"
+  llm: "List the leads captured by the website chat: email address, phone number, the page the visitor was on, the session id and the time. Use this to follow up on visitors, to push them into a CRM, or to count new leads."
+parameters:
+  - name: limit
+    type: number
+    required: false
+    default: 20
+    min: 1
+    max: 100
+    label:
+      en_US: "How many"
+      zh_Hans: "数量"
+      pt_BR: "Quantidade"
+      ja_JP: "件数"
+    human_description:
+      en_US: "How many leads to return, 1 to 100."
+      zh_Hans: "返回多少条线索，1 至 100。"
+      pt_BR: "Quantos leads retornar, de 1 a 100."
+      ja_JP: "返すリードの件数、1 から 100。"
+    llm_description: "How many leads to return, between 1 and 100."
+    form: llm
+  - name: email
+    type: string
+    required: false
+    label:
+      en_US: "Email address"
+      zh_Hans: "邮箱地址"
+      pt_BR: "Endereço de e-mail"
+      ja_JP: "メールアドレス"
+    human_description:
+      en_US: "Return the leads of one address only."
+      zh_Hans: "仅返回该邮箱地址的线索。"
+      pt_BR: "Retornar apenas os leads deste endereço."
+      ja_JP: "このアドレスのリードのみを返します。"
+    llm_description: "Return only the leads of this exact email address. Use it to look up one person."
+    form: llm
+  - name: since
+    type: string
+    required: false
+    label:
+      en_US: "Since"
+      zh_Hans: "起始时间"
+      pt_BR: "Desde"
+      ja_JP: "開始日時"
+    human_description:
+      en_US: "A date such as 2026-09-01. Only leads from that date on."
+      zh_Hans: "日期，例如 2026-09-01。仅返回该日期之后的线索。"
+      pt_BR: "Uma data como 2026-09-01. Apenas leads a partir dessa data."
+      ja_JP: "2026-09-01 のような日付。その日以降のリードのみ。"
+    llm_description: "ISO date or date and time. Only leads that started on or after it are returned."
+    form: llm
+  - name: website_id
+    type: string
+    required: false
+    label:
+      en_US: "Website ID"
+      zh_Hans: "网站 ID"
+      pt_BR: "ID do site"
+      ja_JP: "ウェブサイト ID"
+    human_description:
+      en_US: "Return the leads of one website only. Leave empty for every website on the account."
+      zh_Hans: "仅返回某一个网站的线索。留空则返回账户下所有网站。"
+      pt_BR: "Retornar os leads de apenas um site. Deixe vazio para todos os sites da conta."
+      ja_JP: "特定のウェブサイトのリードのみを返します。空欄の場合はアカウント内のすべてのウェブサイトが対象です。"
+    llm_description: "Numeric id of one website. Leave empty to read the leads of every website on the account."
+    form: form
+extra:
+  python:
+    source: tools/list_leads.py

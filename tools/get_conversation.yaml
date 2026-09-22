@@ -1,0 +1,52 @@
+identity:
+  name: "get_conversation"
+  author: "asyntai"
+  label:
+    en_US: "Read a chat"
+    zh_Hans: "读取对话记录"
+    pt_BR: "Ler uma conversa"
+    ja_JP: "チャットを読む"
+description:
+  human:
+    en_US: "Open one website chat and read every message in it, in order, with the time of each one."
+    zh_Hans: "打开某一次网站对话，按顺序读取其中的每一条消息及其时间。"
+    pt_BR: "Abra uma conversa do site e leia todas as mensagens, em ordem, com o horário de cada uma."
+    ja_JP: "ウェブサイトのチャットを一つ開き、すべてのメッセージを順番に、各メッセージの時刻とともに読み取ります。"
+  llm: "Read the full message history of one website chat, identified by its session id. Use it after List leads to see what the visitor actually asked before anyone replies to them."
+parameters:
+  - name: session_id
+    type: string
+    required: true
+    label:
+      en_US: "Session ID"
+      zh_Hans: "会话 ID"
+      pt_BR: "ID da sessão"
+      ja_JP: "セッション ID"
+    human_description:
+      en_US: "The session ID of the chat. The List leads tool returns it."
+      zh_Hans: "该对话的会话 ID，可由「列出销售线索」工具获得。"
+      pt_BR: "O ID da sessão da conversa. A ferramenta Listar leads o retorna."
+      ja_JP: "そのチャットのセッション ID。「リード一覧」ツールが返します。"
+    llm_description: "The session id of the chat to read, as returned by the list_leads tool."
+    form: llm
+  - name: limit
+    type: number
+    required: false
+    default: 50
+    min: 1
+    max: 100
+    label:
+      en_US: "How many messages"
+      zh_Hans: "消息数量"
+      pt_BR: "Quantas mensagens"
+      ja_JP: "メッセージ件数"
+    human_description:
+      en_US: "How many messages to return, 1 to 100."
+      zh_Hans: "返回多少条消息，1 至 100。"
+      pt_BR: "Quantas mensagens retornar, de 1 a 100."
+      ja_JP: "返すメッセージの件数、1 から 100。"
+    llm_description: "How many messages to return, between 1 and 100."
+    form: form
+extra:
+  python:
+    source: tools/get_conversation.py
