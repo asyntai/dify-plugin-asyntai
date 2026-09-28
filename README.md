@@ -3,6 +3,8 @@
 **Author:** asyntai
 **Version:** 0.0.1
 **Type:** tool
+**Source repository:** https://github.com/asyntai/dify-plugin-asyntai
+**Contact:** hello@asyntai.com
 
 ## Description
 
@@ -30,10 +32,35 @@ The same plugin opens the other side of the website: the chats visitors had, and
 | Read a chat | Returns every message of one website chat, in order. |
 | List websites | Returns each website on the account with its ID and domain. |
 
+## Requirements
+
+- A Dify workspace, on Dify Cloud or self-hosted.
+- An Asyntai account on the Starter plan or above, because the plugin uses the Asyntai API.
+- One credential: an Asyntai API key.
+
+## Connection requirements
+
+The plugin connects to one host and one endpoint family:
+
+| Item | Value |
+| --- | --- |
+| Host | `asyntai.com` |
+| Base URL | `https://asyntai.com` |
+| Endpoints | `/api/v1/chat/`, `/api/v1/knowledge/url/`, `/api/v1/knowledge/text/`, `/api/v1/leads/`, `/api/v1/conversations/`, `/api/v1/websites/` |
+| Protocol | HTTPS on port 443 |
+| Authentication | `Authorization: Bearer <api key>` |
+| Timeout | 60 seconds |
+
+The plugin opens no other network connection. A self-hosted Dify behind a proxy
+or a firewall needs outbound HTTPS to `asyntai.com`. There is no base URL
+setting, because Asyntai runs at that one address.
+
+API reference: https://asyntai.com/documentation/api/
+
 ## Setup
 
 1. Create an account at [asyntai.com](https://asyntai.com) and add your website. Asyntai starts the crawl on its own.
-2. Open **Settings**, then **API**, and copy the API key. The API is part of the Starter plan and above.
+2. Open **Settings**, then **API**, and copy the API key.
 3. In Dify, open **Tools**, find **Asyntai**, and press **Authorize**.
 4. Paste the API key. Dify checks it at once against your account.
 
@@ -54,6 +81,9 @@ One Asyntai account carries several client websites at once, each with its own k
 - **Resell.** The Pro plan holds up to 20 websites and removes the Asyntai badge, so the widget carries your brand and you bill the client.
 - **Refer.** The affiliate programme pays 20% recurring, with a dashboard for clicks, signups and commission. Join at [asyntai.com/become-affiliate/](https://asyntai.com/become-affiliate/).
 
-## Support
+## Source and support
+
+The source of this plugin is at
+https://github.com/asyntai/dify-plugin-asyntai
 
 Write to [hello@asyntai.com](mailto:hello@asyntai.com).

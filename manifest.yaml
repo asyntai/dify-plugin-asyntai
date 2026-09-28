@@ -13,6 +13,7 @@ description:
   pt_BR: Dê ao seu agente o conhecimento de um site inteiro. A Asyntai rastreia o site, mantém as páginas e o feed de produtos atualizados e responde perguntas com base neles. Também abre as conversas do site e os leads gerados.
   ja_JP: エージェントにウェブサイト全体の知識を与えます。Asyntai はサイトを巡回し、ページと商品フィードを最新に保ち、それらをもとに質問に答えます。サイトのチャットと獲得したリードも読み取れます。
 icon: icon.png
+contact: hello@asyntai.com
 tags:
   - utilities
   - productivity
